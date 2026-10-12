@@ -129,7 +129,7 @@ export default function App() {
       <main>
         <section className="intro">
           <div className="eyebrow">
-            <span /> THE LITTLE TOOL FOR YOUR NEXT BIG BUILD
+            <span /> HMAC / SECRET GENERATOR
           </div>
           <h1>
             Strong secrets.
@@ -153,7 +153,7 @@ export default function App() {
           </div>
           <div className="hero-mark" aria-hidden="true">
             <KeyRound />
-            <span className="hero-spark">✳</span>
+            <span className="hero-spark">HMAC / SHA-2</span>
           </div>
         </section>
         <section className="workspace" aria-label="JWT secret generator">

@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@import "./theme.css";
 
-/* Component styles use Tailwind utilities; custom values define the sage palette. */
+/* Slate surfaces, sky-blue actions, and mint success states. */
 @layer components {
   :root {
     font-family: Inter, "Segoe UI", Arial, sans-serif;
-    color: #25352b;
-    background: #f7f8f5;
+    color: var(--color-ink);
+    background: var(--color-canvas);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -44,7 +45,7 @@
   select:focus-visible,
   .secret:focus-visible,
   summary:focus-visible {
-    outline: 3px solid #a5c6ac;
+    outline: 3px solid var(--color-accent);
     outline-offset: 4px;
   }
   .app-shell {
@@ -57,7 +58,7 @@
     @apply flex;
     @apply items-center;
     @apply justify-between;
-    border-bottom: 1px solid #e2e6dd;
+    border-bottom: 1px solid var(--color-line);
   }
   .brand {
     @apply flex;
@@ -70,14 +71,14 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: #284e39;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
     @apply grid;
     @apply place-items-center;
     margin-right: 10px;
   }
   .brand-dot {
-    color: #638967;
+    color: var(--color-accent);
   }
   .header-right {
     @apply flex;
@@ -86,7 +87,7 @@
   }
   .local-badge {
     font-size: 12px;
-    color: #677364;
+    color: var(--color-muted);
     @apply flex;
     @apply items-center;
     gap: 8px;
@@ -97,7 +98,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #638d65;
+    background: var(--color-success);
   }
   .github-link {
     @apply flex;
@@ -113,10 +114,10 @@
     @apply flex;
     @apply items-center;
     gap: 9px;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 650;
     letter-spacing: 1.8px;
-    color: #6d7e69;
+    color: var(--color-accent);
   }
   h1 {
     font-size: 58px;
@@ -126,11 +127,11 @@
     margin: 22px 0 20px;
   }
   h1 > span {
-    color: #7c9177;
+    color: var(--color-accent);
   }
   .intro > p {
     font-size: 16px;
-    color: #768071;
+    color: var(--color-muted);
     line-height: 1.65;
     @apply m-0;
   }
@@ -141,7 +142,7 @@
     @apply flex;
     gap: 23px;
     margin-top: 24px;
-    color: #61755e;
+    color: var(--color-muted);
     font-size: 11px;
   }
   .intro-badges > span {
@@ -155,35 +156,38 @@
     top: 95px;
     width: 150px;
     height: 150px;
-    border: 1px solid #dbe4d5;
-    border-radius: 36px;
-    background: linear-gradient(145deg, #edf2e7, #f6f8f2);
-    transform: rotate(-12deg);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    background: var(--color-surface);
+    transform: none;
     @apply grid;
     @apply place-items-center;
-    box-shadow: 12px 12px 0 #eef1e9;
+    box-shadow: inset 0 1px 0 #ffffff05;
   }
   .hero-mark > svg {
     width: 67px;
     height: 67px;
-    color: #6d8b68;
-    stroke-width: 1.3;
+    color: var(--color-accent);
+    stroke-width: 1.2;
+    transform: translateY(-10px);
   }
   .hero-spark {
-    @apply absolute;
-    top: -26px;
-    right: -31px;
-    color: #79906f;
-    font-size: 46px;
+    position: absolute;
+    bottom: 15px;
+    font:
+      10px Consolas,
+      monospace;
+    letter-spacing: 2px;
+    color: var(--color-faint);
   }
   .workspace {
     @apply grid;
     grid-template-columns: 1.55fr 1fr;
-    @apply bg-white;
-    border: 1px solid #dfe5db;
+    @apply bg-surface;
+    border: 1px solid var(--color-line);
     border-radius: 16px;
     @apply overflow-hidden;
-    box-shadow: 0 8px 24px #25352b04;
+    box-shadow: 0 12px 32px #00000020;
   }
   .generator {
     padding: 28px 30px 25px;
@@ -202,8 +206,8 @@
   }
   .step {
     font-size: 10px;
-    color: #879180;
-    border: 1px solid #dfe5d9;
+    color: var(--color-faint);
+    border: 1px solid var(--color-line);
     width: 24px;
     height: 24px;
     @apply grid;
@@ -221,8 +225,8 @@
     @apply items-center;
     gap: 6px;
     font-size: 10px;
-    color: #698467;
-    background: #f0f5eb;
+    color: var(--color-success);
+    background: var(--color-success-bg);
     padding: 6px 8px;
     border-radius: 5px;
   }
@@ -231,9 +235,9 @@
     height: 4px;
   }
   .key-box {
-    border: 1px solid #dde4d7;
+    border: 1px solid var(--color-line);
     border-radius: 10px;
-    background: #f8faf5;
+    background: var(--color-recessed);
     padding: 15px 18px 0;
   }
   .key-box-top {
@@ -245,15 +249,15 @@
     @apply flex;
     @apply items-center;
     gap: 7px;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 1.3px;
-    color: #89917d;
+    color: var(--color-faint);
     @apply font-semibold;
   }
   .icon-button {
     @apply border-0;
     background: none;
-    color: #7d8975;
+    color: var(--color-muted);
     @apply grid;
     @apply place-items-center;
     padding: 3px;
@@ -265,7 +269,7 @@
     letter-spacing: 0.3px;
     margin: 23px 0 25px;
     min-height: 63px;
-    color: #3b5839;
+    color: var(--color-ink);
   }
   .wrap {
     overflow-wrap: anywhere;
@@ -282,13 +286,13 @@
     @apply select-none;
   }
   .key-meta {
-    border-top: 1px solid #e3e8dd;
+    border-top: 1px solid var(--color-line);
     padding: 13px 0;
     @apply flex;
     @apply items-center;
     @apply justify-between;
     font-size: 10px;
-    color: #8a9480;
+    color: var(--color-faint);
   }
   .key-meta > span {
     @apply flex;
@@ -299,11 +303,11 @@
     width: 2px;
     height: 2px;
     border-radius: 50%;
-    background: #aab3a0;
+    background: var(--color-faint);
     margin: 0 2px;
   }
   .key-meta > span:last-child {
-    color: #6a8660;
+    color: var(--color-success);
   }
   .actions {
     @apply flex;
@@ -327,13 +331,13 @@
     transform: translateY(1px);
   }
   .generate-button {
-    background: #2b5038;
-    @apply text-white;
-    border: 1px solid #2b5038;
+    background: var(--color-primary);
+    @apply text-on-primary;
+    border: 1px solid var(--color-primary);
     @apply flex-1;
   }
   .generate-button:hover {
-    background: #1e3e2a;
+    background: var(--color-primary-hover);
   }
   .generate-button > svg:last-child {
     margin-left: auto;
@@ -346,9 +350,9 @@
   }
   .copy-button,
   .download-button {
-    border: 1px solid #dfe5da;
-    @apply bg-white;
-    color: #52644a;
+    border: 1px solid var(--color-line);
+    @apply bg-surface;
+    color: var(--color-ink);
   }
   .copy-button {
     padding: 0 16px;
@@ -358,30 +362,30 @@
   }
   .copy-button:hover,
   .download-button:hover {
-    background: #f4f7ef;
+    background: var(--color-panel);
   }
   .feedback {
     min-height: 27px;
     padding-top: 7px;
     font-size: 10px;
-    color: #57704e;
+    color: var(--color-accent);
   }
   .privacy-note {
     @apply flex;
     gap: 12px;
     padding-top: 18px;
-    border-top: 1px solid #edf0e8;
+    border-top: 1px solid var(--color-line);
     @apply items-start;
   }
   .note-icon {
     @apply grid;
     @apply place-items-center;
-    background: #f0f4ea;
+    background: var(--color-panel);
     width: 35px;
     height: 35px;
     @apply shrink-0;
     border-radius: 9px;
-    color: #78906c;
+    color: var(--color-accent);
   }
   .privacy-note strong {
     font-size: 12px;
@@ -390,24 +394,24 @@
   .privacy-note p {
     font-size: 11px;
     line-height: 1.65;
-    color: #8a9280;
+    color: var(--color-muted);
     margin: 5px 0 0;
     max-width: 370px;
   }
   .settings {
     padding: 28px;
-    background: #fbfcf9;
-    border-left: 1px solid #e4e9dd;
+    background: var(--color-panel);
+    border-left: 1px solid var(--color-line);
   }
   .settings > .section-heading > svg {
-    color: #89957e;
+    color: var(--color-faint);
   }
   .field-label {
     font-size: 11px;
     font-weight: 550;
     @apply block;
     margin-bottom: 9px;
-    color: #52604b;
+    color: var(--color-muted);
   }
   .select-wrap {
     @apply relative;
@@ -416,10 +420,10 @@
   .select-wrap select {
     @apply appearance-none;
     @apply w-full;
-    border: 1px solid #dce3d5;
+    border: 1px solid var(--color-line);
     border-radius: 7px;
-    @apply bg-white;
-    color: #4d5c45;
+    @apply bg-recessed;
+    color: var(--color-ink);
     font-size: 12px;
     padding: 12px 32px 12px 12px;
   }
@@ -428,7 +432,7 @@
     @apply absolute;
     right: 12px;
     top: 12px;
-    color: #7c8971;
+    color: var(--color-faint);
   }
   .field-row {
     @apply flex;
@@ -437,12 +441,12 @@
   }
   .tiny-label {
     font-size: 9px;
-    color: #909986;
+    color: var(--color-faint);
   }
   .segments {
     @apply flex;
-    border: 1px solid #dfe5d8;
-    background: #f0f3ea;
+    border: 1px solid var(--color-line);
+    background: var(--color-recessed);
     padding: 3px;
     border-radius: 8px;
     gap: 3px;
@@ -454,14 +458,14 @@
     border-radius: 5px;
     padding: 9px 2px;
     font-size: 11px;
-    color: #859077;
+    color: var(--color-muted);
     @apply whitespace-nowrap;
   }
   .segments > button.selected {
-    @apply bg-white;
-    border-color: #dfe6d7;
-    box-shadow: 0 1px 3px #27361d08;
-    color: #3a5932;
+    @apply bg-selected;
+    border-color: #9acbff60;
+    box-shadow: inset 0 1px 0 #ffffff05;
+    color: var(--color-accent);
     @apply font-semibold;
   }
   .bits {
@@ -473,12 +477,12 @@
   }
   .field-help {
     font-size: 10px;
-    color: #8a957d;
+    color: var(--color-faint);
     margin: 10px 0 20px;
     line-height: 1.5;
   }
   .toggles {
-    border-top: 1px solid #e3e8dc;
+    border-top: 1px solid var(--color-line);
     padding-top: 19px;
     @apply grid;
     gap: 20px;
@@ -498,7 +502,7 @@
   .toggle-row small {
     @apply block;
     font-size: 9px;
-    color: #909985;
+    color: var(--color-faint);
     margin-top: 5px;
   }
   .toggle-row input {
@@ -511,7 +515,7 @@
   .switch {
     width: 32px;
     height: 18px;
-    background: #d5decf;
+    background: var(--color-line);
     border-radius: 20px;
     padding: 3px;
     transition: background 0.2s;
@@ -522,19 +526,19 @@
     @apply block;
     width: 12px;
     height: 12px;
-    @apply bg-white;
+    @apply bg-ink;
     border-radius: 50%;
     box-shadow: 0 1px 2px #0002;
     transition: transform 0.2s;
   }
   .toggle-row input:checked + .switch {
-    background: #60815a;
+    background: var(--color-accent);
   }
   .toggle-row input:checked + .switch:after {
     transform: translateX(14px);
   }
   .toggle-row input:focus-visible + .switch {
-    outline: 3px solid #a5c6ac;
+    outline: 3px solid var(--color-accent);
     outline-offset: 4px;
   }
   .guide {
@@ -544,11 +548,11 @@
     @apply flex;
     @apply items-center;
     gap: 9px;
-    color: #718367;
+    color: var(--color-accent);
   }
   .guide-title h2 {
     font-size: 14px;
-    color: #506147;
+    color: var(--color-ink);
   }
   .guide-grid {
     @apply grid;
@@ -560,7 +564,7 @@
     font-size: 9px;
     @apply font-semibold;
     letter-spacing: 1.3px;
-    color: #93a08a;
+    color: var(--color-faint);
   }
   h3 {
     font-size: 12px;
@@ -570,16 +574,16 @@
   .guide-grid p {
     font-size: 11px;
     line-height: 1.75;
-    color: #8a9380;
+    color: var(--color-muted);
     @apply m-0;
     max-width: 270px;
   }
   details {
     margin-top: 26px;
-    border-top: 1px solid #e3e7dc;
+    border-top: 1px solid var(--color-line);
     padding-top: 17px;
     font-size: 11px;
-    color: #7d8a70;
+    color: var(--color-muted);
   }
   summary {
     @apply cursor-pointer;
@@ -593,15 +597,15 @@
     @apply inline-flex;
     gap: 5px;
     @apply items-center;
-    color: #365a3a;
+    color: var(--color-accent);
   }
   footer {
-    border-top: 1px solid #e0e5d9;
+    border-top: 1px solid var(--color-line);
     padding: 23px 0 28px;
     @apply flex;
     @apply items-center;
     @apply justify-between;
-    color: #9aa38f;
+    color: var(--color-faint);
     font-size: 10px;
   }
   .footer-brand {
@@ -610,7 +614,7 @@
     @apply items-center;
     font-size: 13px;
     @apply font-semibold;
-    color: #7f9073;
+    color: var(--color-muted);
   }
   footer > a {
     @apply flex;
@@ -657,7 +661,7 @@
     }
     .hero-mark {
       right: 25px;
-      transform: rotate(-12deg) scale(0.8);
+      transform: scale(0.8);
     }
     h1 {
       font-size: 49px;
@@ -738,7 +742,7 @@
     }
     .settings {
       border-left: 0;
-      border-top: 1px solid #e4e9dd;
+      border-top: 1px solid var(--color-line);
     }
     .secret {
       font-size: 18px;
@@ -789,6 +793,41 @@
     }
     .key-meta {
       font-size: 9px;
+    }
+  }
+}
+
+@layer components {
+  .key-box {
+    box-shadow: inset 0 1px 4px #00000020;
+  }
+  .segments > button:disabled {
+    opacity: 0.35;
+  }
+  .actions button {
+    font-weight: 600;
+  }
+  .hero-mark {
+    background-image:
+      linear-gradient(var(--color-line), var(--color-line)),
+      linear-gradient(var(--color-line), var(--color-line));
+    background-size:
+      18px 1px,
+      1px 18px;
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+  }
+  .github-link:hover,
+  footer a:hover {
+    color: var(--color-accent);
+  }
+  @media (max-width: 620px) {
+    .brand {
+      font-size: 20px;
+    }
+    .github-link > span,
+    .github-link > svg:last-child {
+      display: none;
     }
   }
 }
